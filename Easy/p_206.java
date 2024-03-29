@@ -11,3 +11,22 @@ class Solution {
         return head;
     }
 }
+
+//Recursive algorithm
+class Solution {
+    ListNode root;
+    public ListNode reverseList(ListNode head) {
+        if(head==null||head.next==null) return head;
+        reverse(null,head);
+        return root;
+    }
+    private void reverse(ListNode previous,ListNode now){
+        if(now==null){
+            root=previous;
+            return;
+        }
+        reverse(now,now.next);
+        now.next=previous;
+        return;
+    }
+}
