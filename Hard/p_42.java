@@ -1,3 +1,27 @@
+//Using two pointers
+//Time Complexity O(n)
+//Space Complexity O(1)
+
+class Solution {
+    public int trap(int[] height) {
+        int n=height.length,i=0,j=n-1,frontmax=0,backmax=0,total=0;
+        if(n<3) return 0;
+        while(i<=j){
+            if(height[i]<=height[j]){
+                if(height[i]<frontmax) total=total+frontmax-height[i];
+                else frontmax=height[i];
+                i++;
+            }
+            else{
+                if(height[j]<backmax) total=total+backmax-height[j];
+                else backmax=height[j];
+                j--;
+            }
+        }
+        return total;
+    }
+}
+
 //Using array to store prefix and suffix maximum
 
 class Solution {
