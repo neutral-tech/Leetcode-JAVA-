@@ -35,3 +35,18 @@ class Solution {
     }
 }
 
+//More optimal solution
+
+class Solution {
+    int max=Integer.MIN_VALUE;
+    public ListNode removeNodes(ListNode head) {
+        if(head==null) return head;
+        head.next=removeNodes(head.next);
+        if(head.val>=max){
+            max=head.val;
+            return head;
+        }
+        return head.next;
+    }
+}
+
